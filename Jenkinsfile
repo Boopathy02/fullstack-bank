@@ -31,15 +31,6 @@ pipeline {
             }
         }
         
-        stage('SONARQUBE ANALYSIS') {
-            steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh " $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Bank -Dsonar.projectKey=Bank "
-                }
-            }
-        }
-        
-        
          stage('Install Dependencies') {
             steps {
                 sh "npm install"
